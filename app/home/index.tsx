@@ -33,7 +33,8 @@ const HomeScreen = () => {
         <MovieHorizontalList
           className="mb-5"
           title="Mejor calificadas"
-          movies={topRatedQuery.data ?? []}
+          movies={topRatedQuery.data?.pages.flat() ?? []}
+          loadNextPage={topRatedQuery.fetchNextPage}
         />
         {/* Upcoming */}
         <MovieHorizontalList
